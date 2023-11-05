@@ -1,0 +1,26 @@
+{
+  "AsideBlock": {
+    "description": "Auto imported from components/AsideBlock.vue"
+  },
+  "AsideMenu": {
+    "description": "Auto imported from components/AsideMenu.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "Navbar": {
+    "description": "Auto imported from components/Navbar.vue"
+  },
+  "ThemeSwitcher": {
+    "description": "Auto imported from components/ThemeSwitcher.vue"
+  },
+  "Workspace": {
+    "description": "Auto imported from components/Workspace.vue"
+  },
+  "WorkspaceMenu": {
+    "description": "Auto imported from components/WorkspaceMenu.vue"
+  },
+  "WorkspaceMenuItem": {
+    "description": "Auto imported from components/WorkspaceMenuItem.vue"
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/home/max/projects/todonuxt/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_596a73c3"
+  },
+  {
+    "name": "register",
+    "path": "/register",
+    "component": "/home/max/projects/todonuxt/pages/register.vue",
+    "chunkName": "pages/register",
+    "_name": "_29466a39"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/max/projects/todonuxt/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_e07a5ea8"
+  }
+]

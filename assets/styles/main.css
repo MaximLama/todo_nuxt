@@ -1,0 +1,164 @@
+root{
+    --font-size: 16px;
+}
+
+html{
+    font-size: var(--font-size);
+    font-family: "SF Pro Display", sans-serif;
+    color: #94A3B8;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.0125rem;
+}
+
+html, h1{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #94A3B8;
+    padding: 0;
+    margin: 0;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+*::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+    display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(83, 89, 97, 0.15);
+    border-radius: 62.5rem;    
+}
+
+.orange{
+    background-color: #FFB580!important;
+}
+
+.blue{
+    background-color: #306BFF!important;
+}
+
+.green{
+    background-color: #78C552!important;
+}
+
+.purple{
+    background-color: #BB80FF!important;
+}
+
+.cyan{
+    background-color: #CCEFFF!important;
+}
+
+.light-blue {
+    background-color: #CDDBFE!important;
+}
+
+.light-purple{
+    background-color: #E4CCFF!important;
+}
+
+.light-orange{
+    background-color: #FFE1CC!important;
+}
+
+.light-green{
+    background-color: #D2ECC6!important;
+}
+
+.light-gray{
+    background-color: #EAF0FF!important;
+}
+
+.light-pink{
+    background-color: #FCDDEC!important;
+}
+
+.blue-after::after{
+    background-color: #306BFF!important;
+}
+
+.orange-after::after{
+    background-color: #FFB580!important;
+}
+
+.green-after::after{
+    background-color: #78C552!important;
+}
+
+.purple-label{
+    color: #BB80FF!important;
+    background-color: #F7F0FF!important;
+}
+
+.blue-label{
+    color: #306BFF!important;
+    background-color: #F0F4FF!important;
+}
+
+.cyan-label{
+    color: #33BFFF!important;
+    background-color: #F0FAFF!important;
+}
+
+.orange-label{
+    color: #FFB580!important;
+    background-color: #FFF6F0!important;
+}
+
+.green-label{
+    color: #78C552!important;
+    background-color: #F3FAF0!important;
+}
+
+input{
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: inherit;
+    background: inherit;
+}
+
+input:focus-visible{
+    outline: none;
+}
+
+button{
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: inherit;
+    height: auto;
+    width: auto;
+}
