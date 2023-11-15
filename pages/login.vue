@@ -145,7 +145,7 @@
         display: flex;
         flex-direction: column;
         background: #F8FAFC;
-        margin-bottom: 0.56rem;
+        margin-top: 0.56rem;
         height: 3rem;
         width: 17.0625rem;
         border-radius: 0.4375rem;

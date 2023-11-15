@@ -14,10 +14,24 @@
     "_name": "_29466a39"
   },
   {
+    "name": "workspaces",
+    "path": "/workspaces",
+    "component": "/home/max/projects/todonuxt/pages/workspaces/index.vue",
+    "chunkName": "pages/workspaces/index",
+    "_name": "_03853c97"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/home/max/projects/todonuxt/pages/index.vue",
     "chunkName": "pages/index",
     "_name": "_e07a5ea8"
+  },
+  {
+    "name": "workspaces-id",
+    "path": "/workspaces/:id",
+    "component": "/home/max/projects/todonuxt/pages/workspaces/_id/index.vue",
+    "chunkName": "pages/workspaces/_id/index",
+    "_name": "_f49f97fc"
   }
 ]

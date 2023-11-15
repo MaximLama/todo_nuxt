@@ -16,7 +16,12 @@ import { createStore } from './store.js'
 import nuxt_plugin_plugin_78aa985c from 'nuxt_plugin_plugin_78aa985c' // Source: ./components/plugin.js (mode: 'all')
 import nuxt_plugin_axios_48ed251c from 'nuxt_plugin_axios_48ed251c' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_user_94a8ff7a from 'nuxt_plugin_user_94a8ff7a' // Source: ../plugins/mixins/user.js (mode: 'all')
+import nuxt_plugin_clickoutsideevent_14728b13 from 'nuxt_plugin_clickoutsideevent_14728b13' // Source: ../plugins/mixins/click-outside-event.js (mode: 'all')
+import nuxt_plugin_rem_f7c7c374 from 'nuxt_plugin_rem_f7c7c374' // Source: ../plugins/mixins/rem.js (mode: 'all')
+import nuxt_plugin_focus_12d90b08 from 'nuxt_plugin_focus_12d90b08' // Source: ../plugins/mixins/focus.js (mode: 'all')
+import nuxt_plugin_validation_2635b0d6 from 'nuxt_plugin_validation_2635b0d6' // Source: ../plugins/mixins/validation.js (mode: 'all')
 import nuxt_plugin_vuecookie_24377818 from 'nuxt_plugin_vuecookie_24377818' // Source: ../plugins/vue-cookie.js (mode: 'all')
+import nuxt_plugin_axios_397e53b5 from 'nuxt_plugin_axios_397e53b5' // Source: ../plugins/axios.js (mode: 'all')
 import nuxt_plugin_auth_449dc57e from 'nuxt_plugin_auth_449dc57e' // Source: ./auth.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -227,8 +232,28 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_user_94a8ff7a(app.context, inject)
   }
 
+  if (typeof nuxt_plugin_clickoutsideevent_14728b13 === 'function') {
+    await nuxt_plugin_clickoutsideevent_14728b13(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_rem_f7c7c374 === 'function') {
+    await nuxt_plugin_rem_f7c7c374(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_focus_12d90b08 === 'function') {
+    await nuxt_plugin_focus_12d90b08(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_validation_2635b0d6 === 'function') {
+    await nuxt_plugin_validation_2635b0d6(app.context, inject)
+  }
+
   if (typeof nuxt_plugin_vuecookie_24377818 === 'function') {
     await nuxt_plugin_vuecookie_24377818(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_axios_397e53b5 === 'function') {
+    await nuxt_plugin_axios_397e53b5(app.context, inject)
   }
 
   if (typeof nuxt_plugin_auth_449dc57e === 'function') {

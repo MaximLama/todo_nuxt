@@ -6,7 +6,9 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _596a73c3 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _29466a39 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
+const _03853c97 = () => interopDefault(import('../pages/workspaces/index.vue' /* webpackChunkName: "pages/workspaces/index" */))
 const _e07a5ea8 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _f49f97fc = () => interopDefault(import('../pages/workspaces/_id/index.vue' /* webpackChunkName: "pages/workspaces/_id/index" */))
 
 const emptyFn = () => {}
 
@@ -28,9 +30,17 @@ export const routerOptions = {
     component: _29466a39,
     name: "register"
   }, {
+    path: "/workspaces",
+    component: _03853c97,
+    name: "workspaces"
+  }, {
     path: "/",
     component: _e07a5ea8,
     name: "index"
+  }, {
+    path: "/workspaces/:id",
+    component: _f49f97fc,
+    name: "workspaces-id"
   }],
 
   fallback: false

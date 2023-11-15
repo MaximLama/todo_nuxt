@@ -162,3 +162,7 @@ button{
     height: auto;
     width: auto;
 }
+
+.mob{
+    display: none!important;
+}

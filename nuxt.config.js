@@ -29,10 +29,19 @@ export default {
     "@/assets/styles/main.css"
   ],
 
+  router: {
+    middleware: ["clearValidationErrors"]
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     "@/plugins/mixins/user.js",
-    "@/plugins/vue-cookie.js"
+    "@/plugins/mixins/click-outside-event.js",
+    "@/plugins/mixins/rem.js",
+    "@/plugins/mixins/focus.js",
+    "@/plugins/mixins/validation.js",
+    "@/plugins/vue-cookie.js",
+    "@/plugins/axios.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -1141,4 +1141,10 @@
         height: 3rem;
         width: 3rem;
     }
+
+    @media (max-width: 1023px){
+        main{
+            margin-left: 0;
+        }
+    }
 </style>

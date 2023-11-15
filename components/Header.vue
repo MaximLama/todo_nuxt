@@ -1,5 +1,16 @@
 <template>
     <header class="header">
+        <div class="header-logo">
+            <div class="header-logo-wrapper">
+                <div class="header-logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <path d="M26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13ZM3.80036 13C3.80036 18.0808 7.91918 22.1996 13 22.1996C18.0808 22.1996 22.1996 18.0808 22.1996 13C22.1996 7.91918 18.0808 3.80036 13 3.80036C7.91918 3.80036 3.80036 7.91918 3.80036 13Z" fill="#306BFF"/>
+                        <path d="M19.3064 12.4053C19.8442 12.3546 20.3282 12.7508 20.3067 13.2906C20.2793 13.9795 20.1546 14.6627 19.9348 15.3196C19.6114 16.2866 19.0893 17.1753 18.4021 17.9285C17.7148 18.6818 16.8777 19.283 15.9443 19.6935C15.011 20.1041 14.0021 20.3149 12.9825 20.3125C11.9628 20.31 10.9549 20.0944 10.0236 19.6793C9.09221 19.2643 8.25794 18.6591 7.57433 17.9025C6.89073 17.146 6.3729 16.2548 6.0541 15.2863C5.83752 14.6283 5.71605 13.9445 5.69196 13.2555C5.67309 12.7156 6.15896 12.3218 6.69654 12.3751C7.23411 12.4284 7.61735 12.91 7.66257 13.4483C7.69751 13.8644 7.78107 14.276 7.9123 14.6747C8.14581 15.3841 8.52511 16.0368 9.02583 16.591C9.52656 17.1451 10.1376 17.5885 10.8198 17.8925C11.502 18.1965 12.2403 18.3544 12.9871 18.3562C13.734 18.358 14.473 18.2036 15.1567 17.9029C15.8403 17.6021 16.4535 17.1618 16.9569 16.61C17.4603 16.0583 17.8427 15.4073 18.0796 14.699C18.2127 14.301 18.2983 13.8898 18.3352 13.4739C18.383 12.9359 18.7686 12.4561 19.3064 12.4053Z" fill="#BB80FF"/>
+                    </svg>
+                </div>
+                <p class="header-logo-title">Hiro</p>
+            </div>
+        </div>
         <nav class="header-tabs">
             <ul class="header-tabs__wrapper">
                 <li class="header-tabs__item">
@@ -55,6 +66,14 @@
                 </div>
                 <input class="header-right__search-input" type="text" id="header-search" placeholder="Search...">
             </label>
+            <div class="header-search-mob">
+                <div class="header-right__search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M9.16666 16.6667C13.3088 16.6667 16.6667 13.3088 16.6667 9.16666C16.6667 5.02452 13.3088 1.66666 9.16666 1.66666C5.02452 1.66666 1.66666 5.02452 1.66666 9.16666C1.66666 13.3088 5.02452 16.6667 9.16666 16.6667Z" stroke="#306BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.7749 17.2415C16.2166 18.5748 17.2249 18.7082 17.9999 17.5415C18.7083 16.4748 18.2416 15.5998 16.9583 15.5998C16.0083 15.5915 15.4749 16.3332 15.7749 17.2415Z" stroke="#306BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
             <div class="header-right__messages">
                 <div class="header-right__messages-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -102,6 +121,34 @@
 
     .aside.hide + .header{
         padding-left: 0;
+    }
+
+    .header-logo{
+        display:none;
+    }
+
+    .header-logo-wrapper{
+        display: flex;
+        align-items: center;
+        margin: 0 1.5rem;
+    }
+
+    .header-logo-icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 0.75rem;
+        cursor: pointer;
+    }
+
+    .header-logo-title{
+        color: #1E293B;
+        font-family: SF Pro Display;
+        font-size: 1.625rem;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        cursor: pointer;
     }
 
     .header-tabs{
@@ -177,6 +224,10 @@
         outline: none;
     }
 
+    .header-search-mob{
+        display: none;
+    }
+
     .header-right__messages{
         width: 2rem;
         height: 2rem;
@@ -230,5 +281,25 @@
         background: #FFE1CC;
         border-radius: 50%;
         cursor: pointer;
+    }
+
+    @media (max-width: 1023px){
+        .header{
+            padding-left: 0;
+        }
+
+        .header-logo{
+            display: flex;
+        }
+
+        .header-tabs{
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px){
+        .header-right__search{
+            display: none;
+        }
     }
 </style>

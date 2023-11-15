@@ -23,25 +23,30 @@
             <form class="form" @submit.prevent="submit">
                 <div class="form-inputs__wrapper">
                     <div class="form-input__wrapper">
-                        <input v-model.trim="form.name" class="form-item__input" type="text" id="name" autofocus required>
+                        <input v-model.trim="form.name" class="form-item__input" type="text" id="name" autofocus>
                         <label for="name" class="form-item__label">Имя</label>
                     </div>
+                    <p class="input-error" v-if="errors.name">{{ errors.name[0] }}</p>
                     <div class="form-input__wrapper">
-                        <input v-model.trim="form.surname" class="form-item__input" type="text" id="surname" required>
+                        <input v-model.trim="form.surname" class="form-item__input" type="text" id="surname">
                         <label for="surname" class="form-item__label">Фамилия</label>
                     </div>
+                    <p class="input-error" v-if="errors.surname">{{ errors.surname[0] }}</p>
                     <div class="form-input__wrapper">
-                        <input v-model.trim="form.email" class="form-item__input" type="text" id="email" required>
+                        <input v-model.trim="form.email" class="form-item__input" type="text" id="email">
                         <label for="email" class="form-item__label">E-mail</label>
                     </div>
+                    <p class="input-error" v-if="errors.email">{{ errors.email[0] }}</p>
                     <div class="form-input__wrapper">
-                        <input v-model.trim="form.password" class="form-item__input" type="password" id="password" required>
+                        <input v-model.trim="form.password" class="form-item__input" type="password" id="password">
                         <label for="password" class="form-item__label">Пароль</label>
                     </div>
+                    <p class="input-error" v-if="errors.password">{{ errors.password[0] }}</p>
                     <div class="form-input__wrapper">
-                        <input v-model.trim="form.password_confirmation" class="form-item__input" type="password" id="password-confirm" required>
+                        <input v-model.trim="form.password_confirmation" class="form-item__input" type="password" id="password-confirm">
                         <label for="password-confirm" class="form-item__label">Подтвердите пароль</label>
                     </div>
+                    <p class="input-error" v-if="errors.password_confirmation">{{ errors.password_confirmation[0] }}</p>
                 </div>
                 <button class="btn btn--blue">Зарегистрироваться</button>
             </form>
@@ -64,17 +69,34 @@
         },
         methods:{
             async submit(){
-                await this.$axios.$get('sanctum/csrf-cookie');
-                await this.$axios.$post('register', this.form);
-                const response = await this.$auth.loginWith("laravelSanctum", {
-                    data: {
-                        email: this.form.email,
-                        password: this.form.password
-                    }
-                });
-                console.log(response);
-                this.$router.push('/');
-            }
+                try{
+                    await this.$axios.$get('sanctum/csrf-cookie');
+                    await this.$axios.$post('register', this.form);
+                    const response = await this.$auth.loginWith("laravelSanctum", {
+                        data: {
+                            email: this.form.email,
+                            password: this.form.password
+                        }
+                    });
+                    console.log(response);
+                    this.$router.push('/');
+                }
+                catch(e){
+                    console.log(e);
+                }
+            },
+            validateForm(){
+                //this.closeAllErrors();
+                //this.validateName();
+                //this.validateSurname();
+                //this.validateEmail();
+                //this.validatePassword();
+                //this.validateConfirmPassword();
+                //const emailRegexp = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+            },
+            /*validateName(){
+
+            }*/
         }
     }
 </script>
@@ -164,7 +186,7 @@
         display: flex;
         flex-direction: column;
         background: #F8FAFC;
-        margin-bottom: 0.56rem;
+        margin-top: 0.56rem;
         height: 3rem;
         width: 17.0625rem;
         border-radius: 0.4375rem;
@@ -228,6 +250,17 @@
     .btn--blue{
         background:#306BFF;
         color: white;
+    }
+
+    .input-error{
+        margin: 0;
+        margin-left: 1rem;
+        font-size: 0.75rem;
+        color: red;
+    }
+
+    .input-error::before{
+        content: "*";
     }
 
 </style>

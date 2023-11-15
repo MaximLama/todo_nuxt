@@ -1,9 +1,6 @@
 {
-  "AsideBlock": {
-    "description": "Auto imported from components/AsideBlock.vue"
-  },
-  "AsideMenu": {
-    "description": "Auto imported from components/AsideMenu.vue"
+  "Dashboard": {
+    "description": "Auto imported from components/Dashboard.vue"
   },
   "Header": {
     "description": "Auto imported from components/Header.vue"
@@ -11,16 +8,28 @@
   "Navbar": {
     "description": "Auto imported from components/Navbar.vue"
   },
-  "ThemeSwitcher": {
-    "description": "Auto imported from components/ThemeSwitcher.vue"
-  },
   "Workspace": {
     "description": "Auto imported from components/Workspace.vue"
   },
-  "WorkspaceMenu": {
-    "description": "Auto imported from components/WorkspaceMenu.vue"
+  "AsideBlock": {
+    "description": "Auto imported from components/aside/AsideBlock.vue"
   },
-  "WorkspaceMenuItem": {
-    "description": "Auto imported from components/WorkspaceMenuItem.vue"
+  "AsideMenu": {
+    "description": "Auto imported from components/aside/AsideMenu.vue"
+  },
+  "AsideThemeSwitcher": {
+    "description": "Auto imported from components/aside/ThemeSwitcher.vue"
+  },
+  "AsideWorkspaceMenu": {
+    "description": "Auto imported from components/aside/workspace-menu/Menu.vue"
+  },
+  "AsideWorkspaceMenuItem": {
+    "description": "Auto imported from components/aside/workspace-menu/MenuItem.vue"
+  },
+  "AsideWorkspaceMenuWorkspaceMenuPopup": {
+    "description": "Auto imported from components/aside/workspace-menu/workspace-menu-popup/Popup.vue"
+  },
+  "AsideWorkspaceColor": {
+    "description": "Auto imported from components/aside/workspace-menu/workspace-menu-popup/WorkspaceColor.vue"
   }
 }
