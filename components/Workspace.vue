@@ -51,7 +51,12 @@
             </div>
         </div>
         <div class="container container-main">
-            <div class="column">
+            <Column 
+                v-for="column in workspace.columns"
+                :key="column.id"
+                :column="column"
+            />
+            <!-- <div class="column">
                 <div class="column-title__wrapper">
                     <div class="column-title">Todo</div>
                     <div class="column-title__count">2</div>
@@ -614,7 +619,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="fixed-buttons">
             <div class="fixed-buttons__wrapper">
@@ -626,7 +631,7 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1238 1.33334H4.8762C2.69842 1.33334 1.33334 2.87473 1.33334 5.05678V10.9432C1.33334 13.1253 2.69207 14.6667 4.8762 14.6667H11.1238C13.3079 14.6667 14.6667 13.1253 14.6667 10.9432V5.05678C14.6667 2.87473 13.3079 1.33334 11.1238 1.33334Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div class="new-task-title">New Task</div>
+                    <div class="new-task-title">Новая колонка</div>
                 </div>
                 <div class="choose-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -655,6 +660,29 @@
         </div>
     </main>
 </template>
+
+<script>
+    import Column from './Column.vue';
+    import {mapGetters, mapActions} from 'vuex';
+    export default {
+        components:{
+            Column
+        },
+        computed: {
+            ...mapGetters({
+                workspace: 'workspace/workspace/workspace'
+            })
+        },
+        methods:{
+            ...mapActions({
+                loadWorkspace: 'workspace/workspace/setWorkspace'
+            })
+        },
+        created(){
+            this.loadWorkspace(this.$route.params.id);
+        }
+    }
+</script>
 
 <style scoped>
     main{
@@ -798,290 +826,6 @@
     .container-main{
         margin-top: 3rem;
         overflow: scroll;
-    }
-
-    .column{
-        display: flex;
-        flex-direction: column;
-        min-width: 15.625rem;
-        width: 15.635rem;
-        margin-right: 2rem;
-        height: 100%;
-    }
-
-    .column:last-of-type{
-        margin-right: 0;
-    }
-
-    .column-title__wrapper{
-        min-height: 2.5rem;
-        height: 2.5rem;
-        display: flex;
-        position: relative;
-        margin-bottom: 2rem;
-    }
-
-    .column-title__wrapper::after{
-        content: "";
-        height: 0.125rem;
-        width: 100%;
-        border-radius: 3.125rem;
-        background: #1E293B;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
-    .column-title{
-        display: flex;
-        align-items: center;
-        height: 1.5rem;
-        color: #1E293B;
-        font-size: 0.875rem;
-        font-weight: 700;
-        letter-spacing: 0.0625rem;
-        text-transform: uppercase;
-        margin-right: 0.75rem;
-    }
-
-    .column-title__count{
-        display: flex;
-        align-items: center;
-        height: 1.5rem;
-        box-sizing: border-box;
-        padding: 0 0.5rem;
-        border-radius: 62.5rem;
-        border: 1px solid #E2E8F0;
-        font-size: 0.75rem;
-    }
-
-    .column-settings__dots{
-        display: flex;
-        align-items: center;
-        height: 1.5rem;   
-        margin-left: auto;
-        cursor: pointer;
-    }
-
-    .task{
-        width: 15.625rem;
-        box-sizing: border-box;
-        border-radius: 0.5rem;
-        border: 1px solid #E2E8F0;
-        margin-bottom: 1.75rem;
-        position: relative;
-        background-color: white;
-    }
-
-    .task::after{
-        content: "";
-        display: block;
-        width: 15.125rem;
-        height: 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid #E2E8F0;
-        box-sizing: border-box;
-        position: absolute;
-        left: 0.25rem;
-        bottom: -0.5rem;
-        z-index: -1;
-    }
-
-    .task-main-content{
-        padding: 1.25rem 1rem 1rem 1rem;
-        border-bottom: 0.0625rem solid #E2E8F0;
-    }
-
-    .task-title{
-        color: #1E293B;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-
-    .task-content{
-        margin-bottom: 1rem;
-    }
-
-    .task-text-content{
-        font-size: 0.75rem;
-        line-height: 1.05rem;
-    }
-
-    .task-img__wrapper{
-        display: flex;
-    }
-
-    .task-img{
-        min-width: calc(50%-0.5rem);
-    }
-
-    .task-img:nth-of-type(2n+1){
-        margin-right: 0.5rem;
-    }
-
-    .task-img:last-of-type{
-        margin-right: 0;
-    }
-
-    .task-img img{
-        width: 100%;
-        border-radius: 0.5rem;
-    }
-
-    .task-label__wrapper{
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .task-label{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 1.5rem;
-        height: 1.5rem;
-        box-sizing: border-box;
-        padding: 0.5rem;
-        font-size: 0.75rem;
-        font-weight: 600;
-        border-radius: 0.25rem;
-    }
-
-    .task-circle-labels__wrapper{
-        display: flex;
-    }
-
-    .task-circle-label{
-        min-width: 1.75rem;
-        min-height: 1.75rem;
-        max-width: 1.75rem;
-        max-height: 1.75rem;
-        border-radius: 50%;
-        border: 2px solid #FFF;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .task-circle-label span{
-        font-size: 0.625rem;
-        font-weight: 500;
-    }
-
-    .task-circle-label:not(:first-of-type){
-        margin-left: -0.33rem;
-    }
-
-    .task-footer{
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem 1rem 1.25rem 1rem;
-    }
-
-    .task-footer__left{
-        display: flex;
-    }
-
-    .task-comment-count__wrapper{
-        display: flex;
-        align-items: center;
-        margin-right: 0.75rem;
-    }
-
-    .task-comment-count__icon{
-        display: flex;
-        align-items: center;
-        margin-right: 0.25rem;
-    }
-
-    .task-comment-count{
-        display: flex;
-        align-items: center;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
-
-    .task-share-count__wrapper{
-        display: flex;
-        align-items: center;
-        margin-right: 0.75rem;
-    }
-
-    .task-share-count__icon{
-        display: flex;
-        align-items: center;
-        margin-right: 0.25rem;
-    }
-
-    .task-share-count{
-        display: flex;
-        align-items: center;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
-
-    .task-footer__right{
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .task-footer-date__wrapper{
-        display: flex;
-        align-items: center;
-        margin-right: 0.75rem;
-    }
-
-    .task-footer-date__icon{
-        display: flex;
-        align-items: center;
-        margin-right: 0.25rem;
-    }
-
-    .task-footer-date__title{
-        display: flex;
-        align-items: center;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
-
-    .task-footer-like__wrapper{
-        display: flex;
-        align-items: center;
-        margin-right: 0.75rem;
-    }
-
-    .task-footer-like__icon{
-        display: flex;
-        align-items: center;
-    }
-
-    .task-footer-like__count{
-        display: flex;
-        align-items: center;
-        margin-right: 0.25rem;
-        color: #306BFF;
-        font-size: 0.75rem;
-        font-weight: 700;
-    }
-
-    .task-footer-done_wrapper{
-        display: flex;
-        align-items: center;
-        margin-right: 0.75rem;
-    }
-
-    .task-footer-done__icon{
-        display: flex;
-        align-items: center;
-        margin-right: 0.25rem;
-    }
-
-    .task-footer-done__title{
-        display: flex;
-        align-items: center;
-        color: #78C552;
-        font-size: 0.75rem;
-        font-weight: 600;
     }
 
     .fixed-buttons{

@@ -1,12 +1,18 @@
 {
-  "Dashboard": {
-    "description": "Auto imported from components/Dashboard.vue"
+  "Column": {
+    "description": "Auto imported from components/Column.vue"
+  },
+  "DeleteWorkspaceModal": {
+    "description": "Auto imported from components/DeleteWorkspaceModal.vue"
   },
   "Header": {
     "description": "Auto imported from components/Header.vue"
   },
   "Navbar": {
     "description": "Auto imported from components/Navbar.vue"
+  },
+  "Task": {
+    "description": "Auto imported from components/Task.vue"
   },
   "Workspace": {
     "description": "Auto imported from components/Workspace.vue"
@@ -19,6 +25,24 @@
   },
   "AsideThemeSwitcher": {
     "description": "Auto imported from components/aside/ThemeSwitcher.vue"
+  },
+  "DashboardAddWorkspaceModal": {
+    "description": "Auto imported from components/dashboard/AddWorkspaceModal.vue"
+  },
+  "Dashboard": {
+    "description": "Auto imported from components/dashboard/Dashboard.vue"
+  },
+  "DashboardEditWorkspaceModal": {
+    "description": "Auto imported from components/dashboard/EditWorkspaceModal.vue"
+  },
+  "DashboardEmptyDashboard": {
+    "description": "Auto imported from components/dashboard/EmptyDashboard.vue"
+  },
+  "DashboardWorkspaceItem": {
+    "description": "Auto imported from components/dashboard/WorkspaceItem.vue"
+  },
+  "DashboardWorkspaces": {
+    "description": "Auto imported from components/dashboard/Workspaces.vue"
   },
   "AsideWorkspaceMenu": {
     "description": "Auto imported from components/aside/workspace-menu/Menu.vue"

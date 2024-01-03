@@ -3,35 +3,30 @@
     "name": "login",
     "path": "/login",
     "component": "/home/max/projects/todonuxt/pages/login.vue",
-    "chunkName": "pages/login",
-    "_name": "_596a73c3"
+    "chunkName": "pages/login"
   },
   {
     "name": "register",
     "path": "/register",
     "component": "/home/max/projects/todonuxt/pages/register.vue",
-    "chunkName": "pages/register",
-    "_name": "_29466a39"
+    "chunkName": "pages/register"
   },
   {
     "name": "workspaces",
     "path": "/workspaces",
     "component": "/home/max/projects/todonuxt/pages/workspaces/index.vue",
-    "chunkName": "pages/workspaces/index",
-    "_name": "_03853c97"
+    "chunkName": "pages/workspaces/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/home/max/projects/todonuxt/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_e07a5ea8"
+    "chunkName": "pages/index"
   },
   {
     "name": "workspaces-id",
     "path": "/workspaces/:id",
     "component": "/home/max/projects/todonuxt/pages/workspaces/_id/index.vue",
-    "chunkName": "pages/workspaces/_id/index",
-    "_name": "_f49f97fc"
+    "chunkName": "pages/workspaces/_id/index"
   }
 ]

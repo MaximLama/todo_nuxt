@@ -19,21 +19,29 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
+  resolveStoreModules(require('../store/add-workspace-modal.js'), 'add-workspace-modal.js')
+  resolveStoreModules(require('../store/delete-workspace-modal.js'), 'delete-workspace-modal.js')
+  resolveStoreModules(require('../store/edit-workspace-modal.js'), 'edit-workspace-modal.js')
   resolveStoreModules(require('../store/validation.js'), 'validation.js')
   resolveStoreModules(require('../store/workspace/workspace-menu-colorpicker.js'), 'workspace/workspace-menu-colorpicker.js')
   resolveStoreModules(require('../store/workspace/workspace-menu-popup.js'), 'workspace/workspace-menu-popup.js')
   resolveStoreModules(require('../store/workspace/workspace-menu.js'), 'workspace/workspace-menu.js')
+  resolveStoreModules(require('../store/workspace/workspace.js'), 'workspace/workspace.js')
 
   // If the environment supports hot reloading...
 
   if (process.client && module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept([
+      '../store/add-workspace-modal.js',
+      '../store/delete-workspace-modal.js',
+      '../store/edit-workspace-modal.js',
       '../store/index.js',
       '../store/validation.js',
       '../store/workspace/workspace-menu-colorpicker.js',
       '../store/workspace/workspace-menu-popup.js',
       '../store/workspace/workspace-menu.js',
+      '../store/workspace/workspace.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

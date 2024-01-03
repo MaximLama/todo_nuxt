@@ -8,7 +8,7 @@ export const getters = {
     },
     color: (state) => (id) => {
         const workspaces = state.workspaces.filter( workspace => workspace.id == id);
-        return workspaces.length ? workspaces[0].project_color : null;   
+        return workspaces.length ? workspaces[0].color : null;   
     }
 };
 
@@ -17,7 +17,7 @@ export const mutations = {
         state.workspaces = workspaces
     },
     SET_WORKSPACE_COLOR(state, workspaceData){
-        state.workspaces.filter( workspace => workspace.id == workspaceData.id)[0].project_color = workspaceData.color;
+        state.workspaces.filter( workspace => workspace.id == workspaceData.id)[0].color = workspaceData.color;
     },
     SET_EDIT_NAME(state, workspaceData){
         state.workspaces.filter( workspace => workspace.id == workspaceData.id)[0].editTitle = workspaceData.editTitle;
@@ -27,21 +27,20 @@ export const mutations = {
     },
     ADD_WORKSPACE(state, workspace){
         state.workspaces.push(workspace);
+    },
+    DELETE_WORKSPACE(state, id){
+        state.workspaces.splice(state.workspaces.findIndex(workspace => workspace.id === id), 1);
     }
 }
 
 export const actions = {
-    async setWorkspaces({commit}, idActive){
-        /*if(workspaces.length){
-            workspaces.forEach(workspace => {
-                workspace.editTitle = false;
-            });
-        }*/
-        const response = await this.$axios.$get('api/projects');
+    async setWorkspaces({commit}, idActive = null){
+        const response = (await this.$axios.$get('api/projects')).data;
         response.forEach(workspace => {
             workspace.editTitle = false;
-            if(workspace.id == idActive)
-                workspace.active = true;
+            if (idActive){
+                workspace.active = workspace.id == idActive;
+            }
             else workspace.active = false;
         });
         var workspaces = [];
@@ -49,7 +48,7 @@ export const actions = {
         commit("SET_WORKSPACES", workspaces);
     },
     async setWorkspaceColor({commit}, workspaceData){
-        await this.$axios.$patch('api/projects/'+workspaceData.id, {project_color: workspaceData.color});
+        await this.$axios.$patch('api/projects/'+workspaceData.id, {color: workspaceData.color});
         commit("SET_WORKSPACE_COLOR", workspaceData);
     },
     setEditName({commit}, workspaceData){
@@ -59,9 +58,14 @@ export const actions = {
         await this.$axios.$patch('api/projects/'+workspaceData.id, {title: workspaceData.title});
         commit("SET_NAME", workspaceData);
     },
-    async addWorkspace({commit}){
-        const response = await this.$axios.$post('api/projects', {title: 'Blank', project_color: '#000000', description: 'blank'});
-        const workspace = {...response, ...{editTitle: true, active: false}};
+    async addWorkspace({commit}, editTitle = true){
+        const response = await this.$axios.$post('api/projects', {title: 'Blank', color: '#000000', description: 'blank'});
+        const workspace = {...response.data, ...{editTitle: editTitle, active: false}};
         commit("ADD_WORKSPACE", workspace);
+        return response.data.id;
+    },
+    async deleteWorkspace({commit}, id){
+        const response = await this.$axios.$delete("api/projects/"+id);
+        commit("DELETE_WORKSPACE", id);
     }
 }

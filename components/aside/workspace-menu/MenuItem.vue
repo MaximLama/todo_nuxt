@@ -1,10 +1,10 @@
 <template>
     <li class="workspace-menu-list__item" :class="{active: workspace.active, hovered: isPopupShowed}">
-        <div class="workspace-menu-list__item-circle" :style="{backgroundColor: workspace.project_color}"></div>
-        <nuxt-link :to="'/workspaces/'+workspace.id" class="workspace-menu-list__item-title">
+        <div class="workspace-menu-list__item-circle" :style="{backgroundColor: workspace.color}"></div>
+        <nuxt-link :to="isSetEditTitle ? '#' : '/workspaces/'+workspace.id" class="workspace-menu-list__item-title">
             <transition name="title" mode="out-in">
                 <input v-if="isSetEditTitle" type="text" v-model.trim="name" class="item-input" @keyup.enter="closeEditInput" v-click-outside="closeEditInput" key="edit" v-focus>
-                <span v-else key="title">{{ name }}</span>
+                <span v-else key="title">{{ workspace.title }}</span>
             </transition>
         </nuxt-link>
         <div class="workspace-menu-list__item-dots" :class="{hovered: isPopupShowed}" @click.stop="openWorkspacePopup">
@@ -27,7 +27,7 @@
                 default: {
                     title: 'Blank',
                     active: 'false',
-                    project_color: '#000000',
+                    color: '#000000',
                     editTitle: false
                 }
             },
@@ -48,11 +48,12 @@
             },
             isSetEditTitle: function(){
                 return this.workspace.editTitle;
-            }
+            },
         },
         methods: {
             openWorkspacePopup(event) {
                 if(this.isPopupShowed) return;
+                this.name = this.workspace.title;
                 const top = this.$el.getBoundingClientRect().top / this.rem;
                 this.setPopupData({isPopupOpen:true, top:top, id:this.workspace.id});
             },
@@ -110,6 +111,7 @@
     .workspace-menu-list__item-title{
         color: #1E293B;
         font-weight: 500;
+        flex: 1;
     }
 
     .workspace-menu-list__item.active .workspace-menu-list__item-title{

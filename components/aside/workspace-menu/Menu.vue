@@ -18,16 +18,18 @@
             />
         </ul>
         <Popup />
+        <DeleteWorkspaceModal />
     </div>
 </template>
 
 <script>
     import MenuItem from './MenuItem.vue';
     import Popup from './workspace-menu-popup/Popup.vue';
+    import DeleteWorkspaceModal from '~/components/DeleteWorkspaceModal.vue';
     import {mapGetters, mapActions} from 'vuex';
     export default {
         components: {
-            MenuItem, Popup
+            MenuItem, Popup, DeleteWorkspaceModal
         },
         computed: {
             ...mapGetters({
@@ -44,21 +46,7 @@
             })
         },
         created(){
-            console.log();
-            this.loadWorkspaces(this.$route.params.id/*[
-                    {
-                        id: 1, 
-                        title: 'Hikoko Design',
-                        active: true, 
-                        project_color: "#ffb580"
-                    },
-                    {
-                        id: 2,
-                        title: 'Website Design',
-                        active: false,
-                        project_color: "#306bff"
-                    }
-                ]*/);
+            this.loadWorkspaces(this.$route.params.id);
         }
     }
 </script>
